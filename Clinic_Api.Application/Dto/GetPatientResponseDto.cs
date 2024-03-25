@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clinic_Api.Application.Dto
 {
-    public class GetPatientRequestDto
+    public class GetPatientResponseDto
     {
     }
 }

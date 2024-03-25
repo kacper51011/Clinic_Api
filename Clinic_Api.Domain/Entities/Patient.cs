@@ -21,27 +21,36 @@ namespace Clinic_Api.Domain.Entities
         public DateTimeOffset HospitalizedFrom { get; private set; }
         public DateTimeOffset HospitalizedTo { get; private set; }
 
-        private Patient(string firstName, string lastName, string pesel, DateTimeOffset hospitalizedFrom, DateTimeOffset hospitalizedTo)
+        private Patient(string firstName, string lastName, string pesel)
         {
             PatientId = Guid.NewGuid().ToString();
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;
-            HospitalizedFrom = hospitalizedFrom;
-            HospitalizedTo = hospitalizedTo;
+            HospitalizedFrom = DateTimeOffset.UtcNow;
+            HospitalizedTo = HospitalizedFrom.AddDays(7);
         }
 
-        public Patient Create(string firstName, string lastName, string pesel, DateTimeOffset hospitalizedFrom, DateTimeOffset hospitalizedTo)
+        public Patient Create(string firstName, string lastName, string pesel)
         {
-            if(hospitalizedFrom.AddDays(10) > hospitalizedTo)
-            {
-                throw new DomainException("Patient can`t be hospitalized that longer than 10 days");
-            }
 
-            Patient data = new Patient(firstName, lastName, pesel, hospitalizedFrom, hospitalizedTo);
+            Patient data = new Patient(firstName, lastName, pesel);
             data.InitializeRoot();
 
             return data;
+
+        }
+
+        public void UpdatePersonalData(string firstName, string lastName, string pesel)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Pesel = pesel;
+            this.IncrementVersion();
+        }
+
+        public void ExtendHospitalizationDuration()
+        {
 
         }
 

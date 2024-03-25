@@ -33,6 +33,8 @@ namespace Clinic_Api.Application.Commands.EditPatientPersonalData
 
                 // I decided that People these times can change names, gender etc. So Pesel is also included in edition
                 patient.UpdatePersonalData(x.FirstName, x.LastName, x.Pesel, x.Street, x.City, x.PostalCode);
+
+                return patient.PatientId;
 			}
 
             catch (NotFoundException ex)

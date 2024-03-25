@@ -16,6 +16,6 @@ namespace Clinic_Api.Controllers
             
         }
 
-        public async Task<ActionResult<>>
+        public async Task<ActionResult<Get>>
     }
 }

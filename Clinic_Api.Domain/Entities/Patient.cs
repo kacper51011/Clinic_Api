@@ -23,6 +23,7 @@ namespace Clinic_Api.Domain.Entities
 
         private Patient(string firstName, string lastName, string pesel, DateTimeOffset hospitalizedFrom, DateTimeOffset hospitalizedTo)
         {
+            PatientId = Guid.NewGuid().ToString();
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;

@@ -11,7 +11,8 @@ namespace Clinic_Api.Application.Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Pesel { get; set; }
-        public DateTimeOffset HospitalizedFrom { get; set; }
-        public DateTimeOffset HospitalizedTo { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
     }
 }

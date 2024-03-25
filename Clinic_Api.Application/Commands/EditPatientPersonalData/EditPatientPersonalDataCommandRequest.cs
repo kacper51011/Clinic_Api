@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Clinic_Api.Application.Commands.EditPatientPersonalData
 {
-    public record EditPatientPersonalDataCommandRequest(EditPatientPersonalDataRequestDto dto): IRequest<string>
+    public record EditPatientPersonalDataCommandRequest(EditPatientPersonalDataRequestDto dto, string id): IRequest<string>
     {
     }
 }

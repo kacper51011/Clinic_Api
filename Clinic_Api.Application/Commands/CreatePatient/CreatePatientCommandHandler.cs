@@ -27,7 +27,7 @@ namespace Clinic_Api.Application.Commands.CreatePatient
                     throw new AlreadyExistsException("Patient already exists in database");
                 }
 
-                var patientToCreate = Patient.Create(x.FirstName, x.LastName, x.Pesel);
+                var patientToCreate = Patient.Create(x.FirstName, x.LastName, x.Pesel, x.Street, x.City, x.PostalCode);
 
                 await _patientsRepository.CreateOrUpdatePatient(patientToCreate);
 

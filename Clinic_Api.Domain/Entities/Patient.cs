@@ -18,40 +18,43 @@ namespace Clinic_Api.Domain.Entities
         public string LastName { get; private set; }
         public string Pesel { get; private set; }
 
-        public DateTimeOffset HospitalizedFrom { get; private set; }
-        public DateTimeOffset HospitalizedTo { get; private set; }
+        public string Street {  get; private set; }
+        public string City { get; private set; }
+        public string PostalCode { get; private set; }
 
-        private Patient(string firstName, string lastName, string pesel)
+        private Patient(string firstName, string lastName, string pesel, string street, string city, string postalCode)
         {
             PatientId = Guid.NewGuid().ToString();
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;
-            HospitalizedFrom = DateTimeOffset.UtcNow;
-            HospitalizedTo = HospitalizedFrom.AddDays(7);
+            Street = street;
+            City = city;
+            PostalCode = postalCode;
+
+
         }
 
-        public static Patient Create(string firstName, string lastName, string pesel)
+        public static Patient Create(string firstName, string lastName, string pesel, string street, string city, string postalCode)
         {
 
-            Patient data = new Patient(firstName, lastName, pesel);
+            Patient data = new Patient(firstName, lastName, pesel, street, city, postalCode);
             data.InitializeRoot();
 
             return data;
 
         }
 
-        public void UpdatePersonalData(string firstName, string lastName, string pesel)
+        public void UpdatePersonalData(string firstName, string lastName, string pesel, string street, string city, string postalCode)
         {
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;
+            Street = street;
+            City = city;
+            PostalCode = postalCode;
+
             this.IncrementVersion();
-        }
-
-        public void ExtendHospitalizationDuration()
-        {
-
         }
 
     }

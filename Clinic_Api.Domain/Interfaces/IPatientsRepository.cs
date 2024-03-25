@@ -11,13 +11,13 @@ namespace Clinic_Api.Domain.Interfaces
     {
         public Task<List<Patient>> GetPaginatedPatients(PaginationParameters pagination);
 
-        public Task<Patient> GetPatientById(string id);
+        public Task<Patient> GetPatientById(string patientId);
 
-        public Task DeletePatient(Patient patient);
+        public Task<Patient> GetPatientByPesel(string pesel);
 
-        public Task UpdatePatient(Patient patient);
+        public Task DeletePatient(string patientId);
 
-        public Task CreatePatient(Patient patient);
+        public Task CreateOrUpdatePatient(Patient patient);
 
 
     }

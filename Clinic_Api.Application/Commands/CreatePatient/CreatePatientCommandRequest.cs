@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Clinic_Api.Application.Dto;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace Clinic_Api.Application.Commands.CreatePatient
 {
-    public class CreatePatientCommandRequest : IRequestHandler<CreatePatientCommandRequest, string>
+    public record CreatePatientCommandRequest(CreatePatientRequestDto dto): IRequest<string>
     {
-        public Task<string> Handle(CreatePatientCommandRequest request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

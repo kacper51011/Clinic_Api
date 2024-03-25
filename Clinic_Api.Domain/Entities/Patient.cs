@@ -31,7 +31,7 @@ namespace Clinic_Api.Domain.Entities
             HospitalizedTo = HospitalizedFrom.AddDays(7);
         }
 
-        public Patient Create(string firstName, string lastName, string pesel)
+        public static Patient Create(string firstName, string lastName, string pesel)
         {
 
             Patient data = new Patient(firstName, lastName, pesel);

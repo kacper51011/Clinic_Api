@@ -9,23 +9,22 @@ namespace Clinic_Api.Domain
     // for metadata
     public class AggregateRoot
     {
-        // I Feel like working with DateTimeOffset than DateTime is a bit more save
-        public DateTimeOffset CreatedAt { get; private set; }
-        public DateTimeOffset UpdatedAt { get; private set; }
+        public DateTime CreatedAt { get; private set; }
+        public DateTime UpdatedAt { get; private set; }
         public int Version { get; private set; }
 
 
         protected void InitializeRoot()
         {
-            CreatedAt = DateTimeOffset.UtcNow;
-            UpdatedAt = DateTimeOffset.UtcNow;
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
             Version = 1;
         }
 
         protected void IncrementVersion()
         {
             Version++;
-            UpdatedAt = DateTimeOffset.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
         }
 
     }

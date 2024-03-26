@@ -16,8 +16,8 @@ namespace Clinic_Api.Domain.Entities
         public string PatientId { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
+        public string FullName { get; private set; }
         public string Pesel { get; private set; }
-
         public string Street {  get; private set; }
         public string City { get; private set; }
         public string PostalCode { get; private set; }
@@ -27,6 +27,7 @@ namespace Clinic_Api.Domain.Entities
             PatientId = Guid.NewGuid().ToString();
             FirstName = firstName;
             LastName = lastName;
+            FullName = $"{firstName} {lastName}";
             Pesel = pesel;
             Street = street;
             City = city;

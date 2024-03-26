@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Clinic_Api.Application.Paging
+﻿namespace Clinic_Api.Application.Paging
 {
     public class PaginationParameters
     {
-        private const int maxPageSize = 50;
+        public const int maxPageSize = 50;
         public int Page { get; set; } = 1;
-        public int RecordsPerPage { get; set; } = 10;
+
+        private int _pageSize = 10;
+        public int PageSize
+        {
+            get
+            {
+                return _pageSize;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    _pageSize = 1;
+                }
+                else
+                {
+                    _pageSize = (value > maxPageSize) ? maxPageSize : value;
+                }
+
+            }
+        }
 
     }
 }

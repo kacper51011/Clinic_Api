@@ -1,4 +1,5 @@
 ﻿using Clinic_Api.Application.Dto;
+using Clinic_Api.Application.Paging;
 using Clinic_Api.Domain;
 using MediatR;
 using System;

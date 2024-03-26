@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clinic_Api</name>
+    </assembly>
+    <members>
+        <member name="M:Clinic_Api.Controllers.PatientsController.GetPatientById(System.String)">
+            <summary>
+            Getting single patient data by his Id
+            </summary>
+            <param name="Id">Id of a Patient</param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.GetPatientMetadataById(System.String)">
+            <summary>
+            Getting metadata of the specified patient document stored in db with datetimes in utc
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.GetPaginatedPatients(Clinic_Api.Application.Paging.PaginationParameters)">
+            <summary>
+            Getting list of patients, depends on parameters from pagination
+            </summary>
+            <param name="paginationParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.SearchForPatients(System.String)">
+            <summary>
+            Getting List of patients matching the text query
+            </summary>
+            <param name="textQuery">Either first name, last name or both, separated by single space</param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.GetPatientBadge(System.String)">
+            <summary>
+            Getting zpl command template with values correct for patient with specified Id, you can find how it looks like in
+            at https://labelary.com/viewer.html. Copy returned value, paste it in input, then redraw
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.CreatePatient(Clinic_Api.Application.Dto.CreatePatientRequestDto)">
+            <summary>
+            Creating patient with specified parameters
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.DeletePatient(System.String)">
+            <summary>
+            Deleting patient with specified Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clinic_Api.Controllers.PatientsController.EditPatientPersonalData(System.String,Clinic_Api.Application.Dto.EditPatientPersonalDataRequestDto)">
+            <summary>
+            Edition of Patient data, I decided to use PUT here
+            </summary>
+            <param name="Id"></param>
+            <param name="editPatientDataRequestDto"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

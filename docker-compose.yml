@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Clinic_Api/Dockerfile
+      
 
   mongo:
     image: mongo
